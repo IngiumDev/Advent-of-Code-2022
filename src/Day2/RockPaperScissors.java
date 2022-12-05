@@ -38,50 +38,57 @@ public class RockPaperScissors {
                     // Win = 6 points
                     // Draw = 3 points
                     // Lose = 0 points
-                    if (choices[0].equals("A")) {
-                        // If opponent choses rock
-                        if (choices[1].equals("X")) {
-                            // If we chose rock
-                            // Draw (3+1)
-                            score += 4;
-                        } else if (choices[1].equals("Y")) {
-                            // If we chose paper
-                            // Win (6+2)
-                            score += 8;
-                        } else if (choices[1].equals("Z")) {
-                            // If we chose scissors
-                            // Loss  (3)
-                            score += 3;
+                    switch (choices[0]) {
+                        case "A" -> {
+                            // If opponent choses rock
+                            switch (choices[1]) {
+                                case "X" ->
+                                    // If we chose rock
+                                    // Draw (3+1)
+                                        score += 4;
+                                case "Y" ->
+                                    // If we chose paper
+                                    // Win (6+2)
+                                        score += 8;
+                                case "Z" ->
+                                    // If we chose scissors
+                                    // Loss  (3)
+                                        score += 3;
+                            }
                         }
-                    } else if (choices[0].equals("B")) {
-                        // If opponent choses paper
-                        if (choices[1].equals("X")) {
-                            // If we chose rock
-                            // Loss (1)
-                            score += 1;
-                        } else if (choices[1].equals("Y")) {
-                            // If we chose paper
-                            // Draw (3+2)
-                            score += 5;
-                        } else if (choices[1].equals("Z")) {
-                            // If we chose scissors
-                            // Win (6+3)
-                            score += 9;
+                        case "B" -> {
+                            // If opponent choses paper
+                            switch (choices[1]) {
+                                case "X" ->
+                                    // If we chose rock
+                                    // Loss (1)
+                                        score += 1;
+                                case "Y" ->
+                                    // If we chose paper
+                                    // Draw (3+2)
+                                        score += 5;
+                                case "Z" ->
+                                    // If we chose scissors
+                                    // Win (6+3)
+                                        score += 9;
+                            }
                         }
-                    } else if (choices[0].equals("C")) {
-                        // If opponent choses scissors
-                        if (choices[1].equals("X")) {
-                            // If we chose rock
-                            // Win (6+1)
-                            score += 7;
-                        } else if (choices[1].equals("Y")) {
-                            // If we chose paper
-                            // Loss  (2)
-                            score += 2;
-                        } else if (choices[1].equals("Z")) {
-                            // If we chose scissors
-                            // Draw (3+3)
-                            score += 6;
+                        case "C" -> {
+                            // If opponent choses scissors
+                            switch (choices[1]) {
+                                case "X" ->
+                                    // If we chose rock
+                                    // Win (6+1)
+                                        score += 7;
+                                case "Y" ->
+                                    // If we chose paper
+                                    // Loss  (2)
+                                        score += 2;
+                                case "Z" ->
+                                    // If we chose scissors
+                                    // Draw (3+3)
+                                        score += 6;
+                            }
                         }
                     }
                 }
@@ -107,51 +114,57 @@ public class RockPaperScissors {
                     // Win = 6 points
                     // Draw = 3 points
                     // Lose = 0 points
-                    if (choices[0].equals("A")) {
-                        // If opponent choses rock
-                        if (choices[1].equals("X")) {
-                            // Need to lose
-                            // Lose using scissors (3)
-                            score += 3;
-                        } else if (choices[1].equals("Y")) {
-                            // Need to draw
-                            // Draw using rock (3+1)
-                            score += 4;
-                        } else if (choices[1].equals("Z")) {
-                            // Need to win
-                            // Win using paper (6+2)
-                            score += 8;
+                    switch (choices[0]) {
+                        case "A" -> {
+                            // If opponent choses rock
+                            switch (choices[1]) {
+                                case "X" ->
+                                    // Need to lose
+                                    // Lose using scissors (3)
+                                        score += 3;
+                                case "Y" ->
+                                    // Need to draw
+                                    // Draw using rock (3+1)
+                                        score += 4;
+                                case "Z" ->
+                                    // Need to win
+                                    // Win using paper (6+2)
+                                        score += 8;
+                            }
                         }
-
-                    } else if (choices[0].equals("B")) {
-                        // If opponent choses paper
-                        if (choices[1].equals("X")) {
-                            // Need to lose
-                            // Lose using rock (1)
-                            score += 1;
-                        } else if (choices[1].equals("Y")) {
-                            // Need to draw
-                            // Draw using paper (3+2)
-                            score += 5;
-                        } else if (choices[1].equals("Z")) {
-                            // Need to win
-                            // Win using scissors (6+3)
-                            score += 9;
+                        case "B" -> {
+                            // If opponent choses paper
+                            switch (choices[1]) {
+                                case "X" ->
+                                    // Need to lose
+                                    // Lose using rock (1)
+                                        score += 1;
+                                case "Y" ->
+                                    // Need to draw
+                                    // Draw using paper (3+2)
+                                        score += 5;
+                                case "Z" ->
+                                    // Need to win
+                                    // Win using scissors (6+3)
+                                        score += 9;
+                            }
                         }
-                    } else if (choices[0].equals("C")) {
-                        // If opponent choses scissors
-                        if (choices[1].equals("X")) {
-                            // Need to lose
-                            // Lose using paper (2)
-                            score += 2;
-                        } else if (choices[1].equals("Y")) {
-                            // Need to draw
-                            // Draw using scissors (3+3)
-                            score += 6;
-                        } else if (choices[1].equals("Z")) {
-                            // Need to win
-                            // Win using rock (6+1)
-                            score += 7;
+                        case "C" -> {
+                            // If opponent choses scissors
+                            switch (choices[1]) {
+                                case "X" ->
+                                    // Need to lose
+                                    // Lose using paper (2)
+                                        score += 2;
+                                case "Y" ->
+                                    // Need to draw
+                                    // Draw using scissors (3+3)
+                                        score += 6;
+                                case "Z" ->
+                                    // Need to win
+                                    // Win using rock (6+1)
+                                        score += 7;
+                            }
                         }
                     }
                 }

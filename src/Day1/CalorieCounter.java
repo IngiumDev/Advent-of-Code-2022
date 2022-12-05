@@ -44,10 +44,10 @@ public class CalorieCounter {
         int highestCalorieCountinList = 0;
         // Loop through the list of calorie counts
         if (topElvesAmount == 1) {
-            for (int i = 0; i < highestCalorieCount.size(); i++) {
+            for (Integer integer : highestCalorieCount) {
                 // If the current calorie count is higher than the highest calorie count so far, set the highest calorie count to the max calorie count
-                if (highestCalorieCount.get(i) > highestCalorieCountinList) {
-                    highestCalorieCountinList = highestCalorieCount.get(i);
+                if (integer > highestCalorieCountinList) {
+                    highestCalorieCountinList = integer;
                 }
             }
             return highestCalorieCountinList;

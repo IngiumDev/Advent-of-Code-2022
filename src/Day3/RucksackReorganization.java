@@ -76,15 +76,15 @@ public class RucksackReorganization {
 
                 for (int i = 0; i < rucksacks[0].length(); i++) {
                     // We iterate through the first rucksack and check if the letter appears in the other two rucksacks
-                    if (rucksacks[1].contains(String.valueOf(rucksacks[0].charAt(i))) && rucksacks[2].contains(String.valueOf(rucksacks[0].charAt(i))) && !foundBadge) {
+                    String s = String.valueOf(rucksacks[0].charAt(i));
+                    if (rucksacks[1].contains(s) && rucksacks[2].contains(s) && !foundBadge) {
                         // If the letter appears in the other two rucksacks, we add its priority to the sum
                         sum += priority.get(rucksacks[0].charAt(i));
                         // We set found to true so we don't add the priority of the same letter twice
                         foundBadge = true;
                     }
                 }
-                // We reset foundBadge to false so we can find the next badge
-                foundBadge = false;
+
             }
 
         } catch (IOException e) {

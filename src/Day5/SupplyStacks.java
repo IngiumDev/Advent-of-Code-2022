@@ -67,6 +67,7 @@ public class SupplyStacks {
         // Returns the stack
         return initialStack;
     }
+
     // Gets the value at the top of each stack and combines them into a string without spaces or brackets
     public static String getTopOfStacks(ArrayList<Stack<String>> stacks) {
         //Creates a StringBuilder to hold the values of the top of each stack without spaces or brackets
