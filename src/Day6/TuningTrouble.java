@@ -27,6 +27,7 @@ public class TuningTrouble {
     public static int countFirstFourUnique(String input) {
         int index = 3;
         while (index < input.length()) {
+            // Not exactly elegent, but it works
             if (input.charAt(index) != input.charAt(index - 1) && input.charAt(index) != input.charAt(index - 2) && input.charAt(index) != input.charAt(index - 3) && input.charAt(index - 1) != input.charAt(index - 2) && input.charAt(index - 1) != input.charAt(index - 3) && input.charAt(index - 2) != input.charAt(index - 3)) {
                 return index + 1;
             }
