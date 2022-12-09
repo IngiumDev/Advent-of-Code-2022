@@ -12,7 +12,7 @@ You don't need a computer science background to participate - just a little prog
 | [Day 6](https://github.com/IngiumDev/Advent-of-Code-2022/blob/master/src/Day6/TuningTrouble.java)  | ⭐⭐         | File Scanner                                   |
 | [Day 7](https://github.com/IngiumDev/Advent-of-Code-2022/blob/master/src/Day7/NoSpaceLeftOnDevice.java)  | ⭐⭐         | Tree, BufferedReader, Arrays                   |
 | [Day 8](https://github.com/IngiumDev/Advent-of-Code-2022/blob/master/src/Day8/TreeTopHouse.java)  | ⭐⭐         | BufferedReader, ArrayList                      |
-| [Day #](Link) | Stars | Structures |
+| [Day 9](https://github.com/IngiumDev/Advent-of-Code-2022/blob/master/src/Day9/RopeBridge.java) | ⭐ | 2D ArrayLists, BufferedReader, Arrays |
 
 --- General Tips ---
 
