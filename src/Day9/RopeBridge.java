@@ -21,7 +21,7 @@ public class RopeBridge {
         row2.add("B");
         grid.add(row2);
         processInstructions(grid, instructions, tailGrid);
-        System.out.println("Number of positions the tail visited at least once: " + countTailVisited(tailGrid));
+        System.out.println("Number of positions the tail visited at least once: " + countTailVisited(tailGrid)); // 6284
 
     }
     // Method counts where the tail of the rope visits at least once (cells with #)
