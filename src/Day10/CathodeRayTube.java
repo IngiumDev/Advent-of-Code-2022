@@ -6,25 +6,30 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class CathodeRayTube {
-
     public static void main(String[] args) {
         String fileName = "src/Day10/Day10.txt";
         ArrayList<String[]> instructions = processInstructionsFile(fileName);
         ArrayList<ArrayList<Integer>> cycleValuePair = createCycleValuePair(instructions);
         int[] cycleValues = {20, 60, 100, 140, 180, 220};
-        System.out.println(calculateSummedSignalStrengths(cycleValuePair, cycleValues));
+        System.out.println(calculateSummedSignalStrengths(cycleValuePair, cycleValues)); // 16480
         ArrayList<ArrayList<String>> crt = processCRTInstructions(cycleValuePair);
+        printCRT(crt); // PLEFULPB
     }
 
+    /**
+     * Processes the CRT instructions from the cycleValuePair
+     *
+     * @param cycleValuePair The list of cycle value pairs
+     * @return CRT grid
+     */
     public static ArrayList<ArrayList<String>> processCRTInstructions(ArrayList<ArrayList<Integer>> cycleValuePair) {
         // Initialize the CRT (40x6) with periods
         ArrayList<ArrayList<String>> crt = createCRT();
         // Initialize position of the (middle of the sprite) The sprite is 3 pixels wide
-        int [] position = {0,0};
+        int[] position = {0, 0};
         // Initialize the painting pixel
-        int[] pixel = {0,0};
+        int[] pixel = {0, 0};
         for (ArrayList<Integer> cycleValue : cycleValuePair) {
-            int cycle = cycleValue.get(0);
             int value = cycleValue.get(1);
             //
             position[0] = value;
@@ -44,6 +49,12 @@ public class CathodeRayTube {
         }
         return crt;
     }
+
+    /**
+     * Create the CRT grid
+     *
+     * @return A 40x6 CRT grid
+     */
     public static ArrayList<ArrayList<String>> createCRT() {
         ArrayList<ArrayList<String>> crt = new ArrayList<>();
         for (int i = 0; i < 6; i++) {
@@ -55,6 +66,12 @@ public class CathodeRayTube {
         }
         return crt;
     }
+
+    /**
+     * Print the CRT grid
+     *
+     * @param crt The CRT grid
+     */
     public static void printCRT(ArrayList<ArrayList<String>> crt) {
         for (ArrayList<String> row : crt) {
             for (String pixel : row) {
@@ -63,6 +80,12 @@ public class CathodeRayTube {
             System.out.println();
         }
     }
+
+    /**
+     * @param cycleValuePair The list of cycle value pairs
+     * @param cyclesToSum    The cycles to sum
+     * @return The sum of the signal strengths
+     */
     public static int calculateSummedSignalStrengths(ArrayList<ArrayList<Integer>> cycleValuePair, int[] cyclesToSum) {
         int sum = 0;
         for (ArrayList<Integer> row : cycleValuePair) {
@@ -74,6 +97,11 @@ public class CathodeRayTube {
         }
         return sum;
     }
+
+    /**
+     * @param instructions The list of instructions
+     * @return The cycle value pairs
+     */
     public static ArrayList<ArrayList<Integer>> createCycleValuePair(ArrayList<String[]> instructions) {
         ArrayList<ArrayList<Integer>> cycleValuePair = new ArrayList<>();
         int cycle = 0;
@@ -101,7 +129,7 @@ public class CathodeRayTube {
                 value += addValue;
             }
 
-            }
+        }
         cycle++;
         ArrayList<Integer> cycleValue = new ArrayList<>();
         cycleValue.add(cycle);
@@ -109,21 +137,23 @@ public class CathodeRayTube {
         cycleValuePair.add(cycleValue);
 
         return cycleValuePair;
-        }
-
-
-
-  public static ArrayList<String[]> processInstructionsFile(String filename) {
-    ArrayList<String[]> instructions = new ArrayList<>();
-    try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
-      String line;
-      while ((line = br.readLine()) != null) {
-        String[] instruction = line.split(" ");
-        instructions.add(instruction);
-      }
-    } catch (IOException e) {
-      e.printStackTrace();
     }
-    return instructions;
-  }
+
+    /**
+     * @param filename The filename of the instructions
+     * @return The list of instructions
+     */
+    public static ArrayList<String[]> processInstructionsFile(String filename) {
+        ArrayList<String[]> instructions = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] instruction = line.split(" ");
+                instructions.add(instruction);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return instructions;
+    }
 }
