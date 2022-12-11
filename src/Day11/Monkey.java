@@ -4,16 +4,18 @@ import java.util.ArrayList;
 
 public class Monkey {
     // Fields
-    private ArrayList<Integer> startingItems;
-    private int divBy;
-    private int throwTrue;
-    private int throwFalse;
-    private boolean multiplyOld;
-    private int multiplyBy;
-    private int addBy;
+    private final ArrayList<Long> startingItems;
+    private final int divBy;
+    private final int throwTrue;
+    private final int throwFalse;
+    private final boolean multiplyOld;
+    private final int multiplyBy;
+    private final int addBy;
     private int inspected;
 
-    public Monkey(ArrayList<Integer> startingItems, int divBy, int throwTrue, int throwFalse, boolean multiplyOld, int multiplyBy, int addBy) {
+    // Constructor
+
+    public Monkey(ArrayList<Long> startingItems, int divBy, int throwTrue, int throwFalse, boolean multiplyOld, int multiplyBy, int addBy) {
         this.startingItems = startingItems;
         this.divBy = divBy;
         this.throwTrue = throwTrue;
@@ -24,7 +26,9 @@ public class Monkey {
         inspected = 0;
     }
 
-    public ArrayList<Integer> getStartingItems() {
+    // Methods
+
+    public ArrayList<Long> getStartingItems() {
         return startingItems;
     }
 
@@ -60,9 +64,10 @@ public class Monkey {
         this.inspected++;
     }
 
-    public void addStartingItem(int item) {
+    public void addStartingItem(Long item) {
         startingItems.add(item);
     }
+
     public void clearStartingItems() {
         startingItems.clear();
     }
@@ -79,8 +84,5 @@ public class Monkey {
                 ", addBy=" + addBy +
                 '}';
     }
-// Constructors
-
-    // Methods
 
 }

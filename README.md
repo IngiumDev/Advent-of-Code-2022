@@ -14,6 +14,7 @@ You don't need a computer science background to participate - just a little prog
 | [Day 8](https://github.com/IngiumDev/Advent-of-Code-2022/blob/master/src/Day8/TreeTopHouse.java)  | ⭐⭐         | BufferedReader, ArrayList                      |
 | [Day 9 😤](https://github.com/IngiumDev/Advent-of-Code-2022/blob/master/src/Day9/RopeBridge.java) | ⭐ | 2D ArrayLists, BufferedReader, Arrays |
 | [Day 10](https://github.com/IngiumDev/Advent-of-Code-2022/blob/master/src/Day10/CathodeRayTube.java) | ⭐⭐ | 2D ArrayLists, BufferedReader, Arrays |
+| [Day 11](https://github.com/IngiumDev/Advent-of-Code-2022/blob/master/src/Day11/MonkeyInTheMiddle.java) | ⭐⭐ | Arraylists, BufferedReader, Arrays, Monkey Class |
 
 --- General Tips ---
 
