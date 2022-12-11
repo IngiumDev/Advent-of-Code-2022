@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Objects;
 
 public class RopeBridge {
@@ -26,6 +27,18 @@ public class RopeBridge {
     }
     // Method counts where the tail of the rope visits at least once (cells with #)
 
+    public static void countTailVisitedPartTwo(ArrayList<String[]> input) {
+        HashMap<String, int[]> directions = new HashMap<>();
+        directions.put("D", new int[]{0, -1});
+        directions.put("U", new int[]{0, 1});
+        directions.put("L", new int[]{-1, 0});
+        directions.put("R", new int[]{1, 0});
+        // pos = [(0, 0) for i in range(10)] but in Java
+        int[][] pos = new int[10][2];
+        
+
+
+    }
     public static int countTailVisited(ArrayList<ArrayList<String>> grid) {
         int count = 0;
         for (ArrayList<String> row : grid) {
