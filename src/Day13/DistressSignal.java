@@ -143,6 +143,6 @@ Determine which pairs of packets are already in the right order. What is the sum
     }
     // Process the input
     public static int sumIndicesInOrder(ArrayList<ArrayList<String>> input) {
-
+    return 0;
     }
 }
