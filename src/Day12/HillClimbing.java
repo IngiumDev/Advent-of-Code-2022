@@ -11,12 +11,12 @@ public class HillClimbing {
     public static void main(String[] args) {
         String filename = "src/Day12/Day12.txt";
         HashMap<ArrayList<Integer>, Integer> grid = parseInputFile(filename);
-        ArrayList<ArrayList<Integer>> stardAndEnd = findStartAndEnd(filename);
+        ArrayList<ArrayList<Integer>> startAndEnd = findStartAndEnd(filename);
         int[] WIDTH_AND_HEIGHT = findGridSize("src/Day12/Day12.txt");
         System.out.println(" Running Hill Climbing Algorithm");
-        System.out.println(findShortestPath(grid, stardAndEnd.get(0), stardAndEnd.get(1), true, WIDTH_AND_HEIGHT[0], WIDTH_AND_HEIGHT[1]));
+        System.out.println(findShortestPath(grid, startAndEnd.get(0), startAndEnd.get(1), true, WIDTH_AND_HEIGHT[0], WIDTH_AND_HEIGHT[1]));
         System.out.println(" Running Hill Climbing Algorithm with a twist");
-        System.out.println(findShortestPath(grid, stardAndEnd.get(0), stardAndEnd.get(1), false, WIDTH_AND_HEIGHT[0], WIDTH_AND_HEIGHT[1]));
+        System.out.println(findShortestPath(grid, startAndEnd.get(0), startAndEnd.get(1), false, WIDTH_AND_HEIGHT[0], WIDTH_AND_HEIGHT[1]));
     }
 
     // Return an int[] with the width and height of the grid
@@ -42,24 +42,30 @@ public class HillClimbing {
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
             String line;
             int lineCount = 0;
+            ArrayList<Integer> start = null;
+            ArrayList<Integer> end = null;
             while ((line = br.readLine()) != null) {
                 for (int i = 0; i < line.length(); i++) {
                     char c = line.charAt(i);
-                    if (c == 'S') {
-                        ArrayList<Integer> start = new ArrayList<>();
-                        start.add(lineCount);
-                        start.add(i);
-                        startAndEnd.add(start);
-                    } else if (c == 'E') {
-                        ArrayList<Integer> end = new ArrayList<>();
-                        end.add(lineCount);
-                        end.add(i);
-                        startAndEnd.add(end);
-                    }
+                    switch (c) {
+                        case 'S' -> {
+                            start = new ArrayList<>();
+                            start.add(lineCount);
+                            start.add(i);
 
+                        }
+                        case 'E' -> {
+                            end = new ArrayList<>();
+                            end.add(lineCount);
+                            end.add(i);
+
+                        }
+                    }
                 }
                 lineCount++;
             }
+            startAndEnd.add(start);
+            startAndEnd.add(end);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -68,7 +74,6 @@ public class HillClimbing {
 
     // Find the shortest path from the start to the end using Dijkstra's algorithm
     public static int findShortestPath(HashMap<ArrayList<Integer>, Integer> grid, ArrayList<Integer> start, ArrayList<Integer> end, boolean part1, int WIDTH, int HEIGHT) {
-
         HashMap<ArrayList<Integer>, Integer> shortestPath = new HashMap<>();
         shortestPath.put(start, 0);
         // Create a priority queue of the points to visit
@@ -117,8 +122,7 @@ public class HillClimbing {
             int pathLength = shortestPath.get(p) + 1;
             if (shortestPath.getOrDefault(dir, Integer.MAX_VALUE) > pathLength) {
                 queue.add(dir);
-                if (!part1 && heightAtDir == 0) shortestPath.put(dir, 0);
-                else shortestPath.put(dir, pathLength);
+                shortestPath.put(dir, !part1 && heightAtDir == 0 ? 0 : pathLength);
             }
         }
     }
